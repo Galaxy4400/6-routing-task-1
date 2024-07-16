@@ -8,9 +8,9 @@ import { TaskPage } from './pages/TaskPage';
 export const App = () => {
 	return (
 		<Routes>
-			<Route path="/" element={<MainPage/>} />
-			<Route path="/task" element={<TasksPage/>}>
-				<Route path=":id" element={<TaskPage/>} />
+			<Route path="/" element={<MainPage />} />
+			<Route path="/task" element={<TasksPage />}>
+				<Route path=":id" element={<TaskPage />} />
 			</Route>
 			<Route path="*" element={<Page404 />} />
 		</Routes>
