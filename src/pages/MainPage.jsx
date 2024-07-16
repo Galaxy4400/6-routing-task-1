@@ -3,11 +3,15 @@ import { useGetTasks, useSearchTasks } from '../hooks';
 import { TasksList } from '../components/TasksList';
 import { Link } from 'react-router-dom';
 
-export const MainPage = ({refreshTasksFlag, refreshTasks}) => {
+export const MainPage = () => {
 	const [isSorting, setIsSorting] = useState(false);
+	const [refreshTasksFlag, setRefreshTasksFlag] = useState(false);
+
+	const refreshTasks = () => setRefreshTasksFlag(!refreshTasksFlag);
 
 	const { tasks, setTasks, isLoading } = useGetTasks(refreshTasksFlag, isSorting);
 	const { setSearchTerm, isSearching } = useSearchTasks(setTasks, refreshTasks, isSorting);
+
 
 	return (
 		<div className="tasks">
